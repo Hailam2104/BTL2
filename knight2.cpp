@@ -553,7 +553,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                     alive = true;
                 }
                 if (knight->getHP() <= 0) {
-                    if (knight->getGil() > 100) {
+                    if (knight->getGil() >= 100) {
                         knight->decreaseGil(100);
                         knight->setHP(knight->getMaxHP() / 2);
                         alive = true;
@@ -588,7 +588,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                     alive = true;
                 }
                 if (knight->getHP() <= 0) {
-                    if (knight->getGil() > 100) {
+                    if (knight->getGil() >= 100) {
                         knight->decreaseGil(100);
                         knight->setHP(knight->getMaxHP() / 2);
                         alive = true;
@@ -623,7 +623,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                     alive = true;
                 }
                 if (knight->getHP() <= 0) {
-                    if (knight->getGil() > 100) {
+                    if (knight->getGil() >= 100) {
                         knight->decreaseGil(100);
                         knight->setHP(knight->getMaxHP() / 2);
                         alive = true;
@@ -658,7 +658,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                     alive = true;
                 }
                 if (knight->getHP() <= 0) {
-                    if (knight->getGil() > 100) {
+                    if (knight->getGil() >= 100) {
                         knight->decreaseGil(100);
                         knight->setHP(knight->getMaxHP() / 2);
                         alive = true;
@@ -693,7 +693,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                     alive = true;
                 }
                 if (knight->getHP() <= 0) {
-                    if (knight->getGil() > 100) {
+                    if (knight->getGil() >= 100) {
                         knight->decreaseGil(100);
                         knight->setHP(knight->getMaxHP() / 2);
                         alive = true;
@@ -743,7 +743,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                             alive = true;
                         }
                         if (knight->getHP() <= 0) {
-                            if (knight->getGil() > 100) {
+                            if (knight->getGil() >= 100) {
                                 knight->decreaseGil(100);
                                 knight->setHP(knight->getMaxHP() / 2);
                                 alive = true;
@@ -821,7 +821,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                     alive = true;
                 }
                 if (knight->getHP() <= 0) {
-                    if (knight->getGil() > 100) {
+                    if (knight->getGil() >= 100) {
                         knight->decreaseGil(100);
                         knight->setHP(knight->getMaxHP() / 2);
                         alive = true;
@@ -853,7 +853,7 @@ bool ArmyKnights::fight(BaseOpponent* opponent) {
                     alive = true;
                 }
                 if (knight->getHP() <= 0) {
-                    if (knight->getGil() > 100) {
+                    if (knight->getGil() >= 100) {
                         knight->decreaseGil(100);
                         knight->setHP(knight->getMaxHP() / 2);
                         alive = true;
@@ -879,14 +879,16 @@ bool ArmyKnights::die() {
     if (numknights == 0) {
         return false;
     }
-    BaseKnight** temp = listknights;
-    BaseKnight** newListknights = new BaseKnight * [numknights];
-    for (int i = 0; i < numknights; i++) {
-        newListknights[i] = listknights[i];
+    else {
+        BaseKnight** temp = listknights;
+        BaseKnight** newListknights = new BaseKnight * [numknights];
+        for (int i = 0; i < numknights; i++) {
+            newListknights[i] = listknights[i];
+        }
+        listknights = newListknights;
+        delete[] temp;
+        return true;
     }
-    listknights = newListknights;
-    delete[] temp;
-    return true;
 }
 bool ArmyKnights::die(int position) {
     if (position == 0) {
@@ -913,7 +915,6 @@ bool ArmyKnights::adventure(Events* events) {
     bool win = true;
     for (int i = 0; i < events->count(); i++) {
         gilAdd = 0;
-        win = true;
         switch (events->get(i)) {
             case 1: {
                 opponent = new MadBear(i, events->get(i));
@@ -1102,6 +1103,7 @@ bool ArmyKnights::adventure(Events* events) {
             }
             case 99: {
                 if (this->hasExcaliburSword()) {
+                    win = true;
                 }
                 else if (this->hasPaladinShield() && this->hasLancelotSpear() && this->hasGuinevereHair()) {
                     int UltimeciaHP = 5000;

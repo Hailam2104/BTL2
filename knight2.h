@@ -10,11 +10,11 @@ enum ItemType { ANTIDOTE = 0, PHOENIXDOWNI, PHOENIXDOWNII, PHOENIXDOWNIII, PHOEN
 class BaseKnight;
 class BaseItem;
 class Events;
+
 struct Node {
     BaseItem* item;
     Node* nextItem;
 };
-
 
 class BaseBag {
 protected:
@@ -31,7 +31,6 @@ public:
     virtual void useItem();
     virtual void clearBag();
 };
-
 
 class PaladinBag : public BaseBag {
 public:
@@ -57,7 +56,6 @@ public:
     bool insertFirst(BaseItem* item);
 };
 
-
 enum Opponent {MADBEAR, BANDIT, LORDLUPIN, ELF, TROLL, TORNBERY, QUEENOFCARDS, NINADERINGS, DURIANGARDEN, OMEGAWEAPON, HADES}; 
 
 class BaseOpponent {
@@ -72,7 +70,6 @@ public:
     virtual int getNumGil();
     virtual Opponent typeOpponent() = 0;
 };
-
 
 class MadBear : public BaseOpponent {
 public:
@@ -140,7 +137,6 @@ public:
     Opponent typeOpponent();
 };
 
-
 enum KnightType { PALADIN = 0, LANCELOT, DRAGON, NORMAL };
 
 class BaseKnight {
@@ -184,7 +180,6 @@ public:
     string toString() const;
 };
 
-
 class PaladinKnight : public BaseKnight {
 public:
     PaladinKnight(int id, int maxhp, int level, int gil)
@@ -208,7 +203,6 @@ public:
     NormalKnight(int id, int maxhp, int level, int gil)
         : BaseKnight(id, maxhp, level, gil, NORMAL) {};
 };
-
 
 class ArmyKnights {
 protected:
@@ -249,7 +243,6 @@ public:
     virtual void use(BaseKnight* knight) = 0;
 };
 
-
 class Antidote : public BaseItem {
 public:
     ItemType itemType();
@@ -285,7 +278,6 @@ public:
     void use(BaseKnight* knight);
 };
 
-
 class Events {
 protected:
     int numevents; 
@@ -316,6 +308,5 @@ int countItem(Node* head);
 bool isPrime(int maxhp);
 bool isPytago(int maxhp);
 KnightType knightTypeIs(int maxhp);
-
 
 #endif // __KNIGHT2_H__
