@@ -918,7 +918,7 @@ bool ArmyKnights::adventure(Events* events) {
         switch (events->get(i)) {
             case 1: {
                 opponent = new MadBear(i, events->get(i));
-                while (this->lastKnight() != nullptr) {
+                /*while (this->lastKnight() != nullptr) {
                     if (this->fight(opponent)) {
                         break;
                     }
@@ -927,12 +927,17 @@ bool ArmyKnights::adventure(Events* events) {
                             win = false;
                         }
                     }
+                }*/
+                if (!(this->fight(opponent))) {
+                    if (!(this->die())) {
+                        win = false;
+                    }
                 }
                 break;
             }
             case 2: {
                 opponent = new Bandit(i, events->get(i));
-                while (this->lastKnight() != nullptr) {
+                /*while (this->lastKnight() != nullptr) {
                     if (this->fight(opponent)) {
                         break;
                     }
@@ -940,13 +945,18 @@ bool ArmyKnights::adventure(Events* events) {
                         if (!(this->die())) {
                             win = false;
                         }
+                    }
+                }*/
+                if (!(this->fight(opponent))) {
+                    if (!(this->die())) {
+                        win = false;
                     }
                 }
                 break;
             }
             case 3: {
                 opponent = new LordLupin(i, events->get(i));
-                while (this->lastKnight() != nullptr) {
+                /*while (this->lastKnight() != nullptr) {
                     if (this->fight(opponent)) {
                         break;
                     }
@@ -954,13 +964,18 @@ bool ArmyKnights::adventure(Events* events) {
                         if (!(this->die())) {
                             win = false;
                         }
+                    }
+                }*/
+                if (!(this->fight(opponent))) {
+                    if (!(this->die())) {
+                        win = false;
                     }
                 }
                 break;
             }
             case 4: {
                 opponent = new Elf(i, events->get(i));
-                while (this->lastKnight() != nullptr) {
+                /*while (this->lastKnight() != nullptr) {
                     if (this->fight(opponent)) {
                         break;
                     }
@@ -968,13 +983,18 @@ bool ArmyKnights::adventure(Events* events) {
                         if (!(this->die())) {
                             win = false;
                         }
+                    }
+                }*/
+                if (!(this->fight(opponent))) {
+                    if (!(this->die())) {
+                        win = false;
                     }
                 }
                 break;
             }
             case 5: {
                 opponent = new Troll(i, events->get(i));
-                while (this->lastKnight() != nullptr) {
+                /*while (this->lastKnight() != nullptr) {
                     if (this->fight(opponent)) {
                         break;
                     }
@@ -982,13 +1002,18 @@ bool ArmyKnights::adventure(Events* events) {
                         if (!(this->die())) {
                             win = false;
                         }
+                    }
+                }*/
+                if (!(this->fight(opponent))) {
+                    if (!(this->die())) {
+                        win = false;
                     }
                 }
                 break;
             }
             case 6: {
                 opponent = new Tornbery(i, events->get(i));
-                while (this->lastKnight() != nullptr) {
+                /*while (this->lastKnight() != nullptr) {
                     if (this->fight(opponent)) {
                         break;
                     }
@@ -996,6 +1021,11 @@ bool ArmyKnights::adventure(Events* events) {
                         if (!(this->die())) {
                             win = false;
                         }
+                    }
+                }*/
+                if (!(this->fight(opponent))) {
+                    if (!(this->die())) {
+                        win = false;
                     }
                 }
                 break;
@@ -1018,7 +1048,7 @@ bool ArmyKnights::adventure(Events* events) {
             case 10: {
                 if (winOmegaWeapon == 0) {
                     opponent = new OmegaWeapon;
-                    while (this->lastKnight() != nullptr) {
+                    /*while (this->lastKnight() != nullptr) {
                         if (this->fight(opponent)) {
                             break;
                         }
@@ -1026,6 +1056,11 @@ bool ArmyKnights::adventure(Events* events) {
                             if (!(this->die())) {
                                 win = false;
                             }
+                        }
+                    }*/
+                    if (!(this->fight(opponent))) {
+                        if (!(this->die())) {
+                            win = false;
                         }
                     }
                 }
@@ -1034,7 +1069,7 @@ bool ArmyKnights::adventure(Events* events) {
             case 11: {
                 if (winHades == 0) {
                     opponent = new Hades;
-                    while (this->lastKnight() != nullptr) {
+                    /*while (this->lastKnight() != nullptr) {
                         if (this->fight(opponent)) {
                             break;
                         }
@@ -1042,6 +1077,11 @@ bool ArmyKnights::adventure(Events* events) {
                             if (!(this->die())) {
                                 win = false;
                             }
+                        }
+                    }*/
+                    if (!(this->fight(opponent))) {
+                        if (!(this->die())) {
+                            win = false;
                         }
                     }
                 }
